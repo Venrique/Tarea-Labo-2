@@ -46,7 +46,11 @@ public class LogIn {
                 String[] credenciales = lecturaString.split(",");
 
                 if (this.user.equals(credenciales[0].trim()) && this.pass.equals(credenciales[1].trim())) {
-                    System.out.println("Bienvenid@ " + this.user);
+                   
+                    System.out.println("\n- - - - -Bienvenid@ " + this.user+"- - - - -\n");
+                   
+                    Menu menu = Menu.getInstance();
+                    menu.mostrar();
                     break;
                 } else {
                     System.out.println("Error. Revise sus datos");
