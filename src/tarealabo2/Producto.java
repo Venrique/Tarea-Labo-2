@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tarealabo2;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class Producto {
     private int cantidad;
     private float costo;
     
-    
+    Scanner input = new Scanner(System.in);
 
     public String getNombre() {
         return nombre;
@@ -43,17 +44,91 @@ public class Producto {
     }
     
     public void agregar(){
-        Scanner input = new Scanner(System.in);
         
-        System.out.println("\nIngrese el nombre del producto: ");
+        try{
+        System.out.print("\nIngrese el nombre del producto: ");
         setNombre(input.nextLine());
         
-        System.out.println("\nIngrese la cantidad de producto: ");
+        System.out.print("\nIngrese la cantidad de producto: ");
         setCantidad(input.nextInt());
         
-        System.out.println("\nIngrese el precio del producto: $");
+        System.out.print("\nIngrese el precio del producto: $");
         setCosto(input.nextFloat());
         
+        }catch (InputMismatchException e){
+            System.err.print("Error en la entrada de datos. Intentelo otra vez.\n");
+            input.nextLine();
+        }
         
+    }
+    
+    public void eliminar(){
+        try{
+        System.out.print("\nIngrese el nombre del producto que desea eliminar: ");
+        String eliminar = input.nextLine();
+       
+        }catch (InputMismatchException e){
+            System.err.print("Error en la entrada de datos. Intentelo otra vez.\n");
+            input.nextLine();
+        }
+    }
+    
+    public void modificar(){
+        try{
+        System.out.print("\nIngrese el nombre del producto que desea modificar: ");
+        String producto = input.nextLine();
+        
+        System.out.print("\nNuevo nombre: ");
+        setNombre(input.nextLine());
+        
+        System.out.print("\nNueva cantidad de producto: ");
+        setCantidad(input.nextInt());
+        
+        System.out.print("\nNuevo precio: ");
+        setCosto(input.nextFloat());
+        
+        }catch (InputMismatchException e){
+            System.err.print("Error en la entrada de datos. Intentelo otra vez.\n");
+            input.nextLine();
+        }
+    }
+    
+    public void cargar(){
+        try{
+        System.out.print("\nIngrese el nombre del producto: ");
+        String producto = input.nextLine();
+        
+        System.out.println("\nCantidad que desea agregar: ");
+        int cant = input.nextInt();
+        
+        }catch (InputMismatchException e){
+            System.err.print("Error en la entrada de datos. Intentelo otra vez.\n");
+            input.nextLine();
+        }
+    }
+    
+    public void descargar(){
+        try{
+        System.out.print("\nIngrese el nombre del producto: ");
+        String producto = input.nextLine();
+       
+        System.out.println("\nCantidad que desea eliminar: ");
+        int cant = input.nextInt();
+        
+        }catch (InputMismatchException e){
+            System.err.print("Error en la entrada de datos. Intentelo otra vez.\n");
+            input.nextLine();
+        }
+    }
+    
+    public void descartar(){
+        try{
+        System.out.print("\nIngrese el nombre del producto que desea inhabilitar: ");
+        String producto = input.nextLine();
+        
+        }catch (InputMismatchException e){
+            System.err.print("Error en la entrada de datos. Intentelo otra vez.\n");
+            input.nextLine();
+        }
     }
 }

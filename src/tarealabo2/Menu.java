@@ -37,7 +37,9 @@ public class Menu {
             System.out.println("4)Cargar producto.");
             System.out.println("5)Descargar producto.");
             System.out.println("6)Descartar producto.");
-            System.out.println("7)Salir.");
+            System.out.println("7)Agregar proveedor.");
+            System.out.println("8)Eliminar proveedor.");
+            System.out.println("9)Salir.");
 
             Scanner input = new Scanner(System.in);
 
@@ -46,27 +48,34 @@ public class Menu {
                 int op = input.nextInt();
                 
                 Producto producto = new Producto();
+                Proveedor proveedor = new Proveedor();
                 
                 switch(op){
                     case 1:
                         producto.agregar();
                         break;
                     case 2:
-                        System.out.println("el");
+                        producto.eliminar();
                         break;
                     case 3:
-                        System.out.println("mod");
+                        producto.modificar();
                         break;
                     case 4:
-                        System.out.println("car");
+                        producto.cargar();
                         break;
                     case 5:
-                        System.out.println("des");
+                        producto.descargar();
                         break;
                     case 6:
-                        System.out.println("des2");
+                        producto.descartar();
                         break;
                     case 7:
+                        proveedor.agregar();
+                        break;
+                    case 8:
+                        proveedor.eliminar();
+                        break;
+                    case 9:
                         bandera=false;
                         break;
                 }
